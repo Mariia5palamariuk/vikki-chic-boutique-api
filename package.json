@@ -2,30 +2,23 @@
   "name": "vikki-chic-boutique-api",
   "version": "1.0.0",
   "description": "API for Vikki Chic Boutique women's fashion store",
-  "main": "index.js",
+  "main": "api.mjs",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/Mariia5palamariuk/vikki-chic-boutique-api.git"
   },
   "scripts": {
-  "start": "node index.js",
-  "dev": "node index.js",
-  "test": "echo \"No tests yet\"",
-  "zip": "node temp-scripts/zip.js",
-  "check-zip": "powershell \"Expand-Archive vikki-chic-boutique-api.zip -DestinationPath temp-check -Force; Get-ChildItem temp-check -Recurse; Remove-Item temp-check -Recurse -Force\"",
-  "deploy": "npm run zip && aws lambda update-function-code --function-name vikki-chic-boutique-api --region eu-north-1 --zip-file fileb://vikki-chic-boutique-api.zip",
-  "create-function": "aws lambda create-function --function-name vikki-chic-boutique-api --runtime nodejs22.x --role arn:aws:iam::707859598567:role/vikki-chic-boutique-lambda-role --handler api.handler --zip-file fileb://vikki-chic-boutique-api.zip --region eu-north-1"
-},
-  "keywords": [
-    "api",
-    "ecommerce",
-    "fashion",
-    "women-clothing",
-    "boutique"
-  ],
+    "zip": "node temp-scripts/zip.js",
+    "check-zip": "powershell \"Expand-Archive vikki-chic-boutique-api.zip -DestinationPath temp-check -Force; Get-ChildItem temp-check -Recurse; Remove-Item temp-check -Recurse -Force\"",
+    "deploy": "npm run zip && aws lambda update-function-code --function-name vikki-chic-boutique-api --region eu-north-1 --zip-file fileb://vikki-chic-boutique-api.zip",
+    "create-function": "aws lambda create-function --function-name vikki-chic-boutique-api --runtime nodejs22.x --role arn:aws:iam::707859598567:role/vikki-chic-boutique-lambda-role --handler api.handler --zip-file fileb://vikki-chic-boutique-api.zip --region eu-north-1"
+  },
   "author": "Mariia",
   "license": "ISC",
   "dependencies": {
-    "archiver": "^7.0.1"
+    "archiver": "^7.0.1",
+    "aws": "^0.0.3-2",
+    "fs": "^0.0.1-security"
   }
 }
